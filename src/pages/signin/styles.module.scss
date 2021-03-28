@@ -1,0 +1,54 @@
+.boxContent {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.logo {
+  width: 24rem;
+  margin-bottom: 8rem;
+
+  img {
+    width: 24rem;
+  }
+}
+
+.signIn {
+  button + button {
+    margin-top: 2rem;
+  }
+}
+
+.separator {
+  width: 100%;
+  margin: 1.5rem 0;
+  position: relative;
+  display: block;
+
+  font-size: 1.25rem;
+  color: var(--gray-400);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before, &::after {
+    content: '';
+    width: 40%;
+    height: 1px;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background-color: var(--gray-400);
+    opacity: 0.6;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+}
