@@ -5,6 +5,8 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useSession } from 'next-auth/client'
 
+import Cookies from 'js-cookie'
+
 import styles from './styles.module.scss'
 import common from '../../styles/common.module.scss'
 import { GoogleButton } from '../../components/GoogleButton'
@@ -13,13 +15,20 @@ import { GuestButton } from '../../components/GuestButton'
 
 export default function SignIn() {
   const [session] = useSession()
+  const guest = Cookies.get('guest')
   const router = useRouter()
 
   useEffect(() => {
-    if (session) {
+    if (session || guest) {
       router.push('/')
     }
-  }, [session])
+  }, [session, guest])
+
+  if (session || guest) {
+    return (
+      <h1>Carregando...</h1>
+    )
+  }
 
   return (
     <>

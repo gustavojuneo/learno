@@ -18,8 +18,9 @@ export default function Home() {
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const session = await getSession({ req })
+  const { guest } = req.cookies
 
-  if (!session) {
+  if (!session && guest !== 'guest_user') {
     return {
       redirect: {
         destination: '/signin',
