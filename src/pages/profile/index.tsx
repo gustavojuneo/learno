@@ -8,6 +8,7 @@ import { FiArrowLeft, FiLogOut } from 'react-icons/fi'
 import { BiTaskX, BiTask } from 'react-icons/bi'
 
 import styles from './styles.module.scss'
+import Link from 'next/link'
 
 export default function Profile() {
   const router = useRouter()
@@ -49,7 +50,17 @@ export default function Profile() {
           </div>
         </div>
 
-        <button className={styles.signOutButton}>
+        <nav className={styles.profileOptions}>
+          <Link href="/profile">
+            <a>Editar perfil</a>
+          </Link>
+
+          <Link href="/profile">
+            <a>Notificações</a>
+          </Link>
+        </nav>
+
+        <button className={styles.signOutButton} onClick={() => signOut()}>
           <FiLogOut />
           Sign out
         </button>
