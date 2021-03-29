@@ -1,0 +1,111 @@
+.container {
+  width: 100%;
+  max-width: 720px;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backButton {
+  align-self: start;
+  background: transparent;
+  border: 0;
+
+  margin: 2rem 0 4rem;
+
+  color: var(--gray-400);
+
+  transition: color .2s;
+
+  &:hover, &:active {
+    color: var(--white);
+  }
+  
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.profileContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.userInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 156px;
+    height: 156px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+  }
+
+  > span {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}
+
+.taskInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--gray-400);
+
+    & + span {
+      margin-left: 1rem;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.signOutButton {
+  width: 100%;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 2rem;
+  border: 0;
+
+  margin: 2rem 0;
+
+  background-color: var(--gray-700);
+  color: var(--white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 2rem;
+  }
+}
