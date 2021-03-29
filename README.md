@@ -77,4 +77,4 @@ https://localhost:3000
 
 ## License
 
-This project is under [LICENSE](../LICENSE) from MIT.
+This project is under [LICENSE](./LICENSE) from MIT.
