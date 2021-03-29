@@ -10,9 +10,15 @@ import { BiTaskX, BiTask } from 'react-icons/bi'
 import styles from './styles.module.scss'
 import Link from 'next/link'
 
-export default function Profile() {
+interface ProfileProps {
+  user: {
+    name: string
+    image: string
+  }
+}
+
+export default function Profile({ user }: ProfileProps) {
   const router = useRouter()
-  const [session] = useSession()
 
   return (
     <div className={styles.container}>
@@ -31,11 +37,11 @@ export default function Profile() {
       <main className={styles.profileContent}>
         <div className={styles.userInfo}>
           <img
-            src={session?.user.image}
-            alt={session?.user.name}
+            src={user.image}
+            alt={user.name}
             className={styles.avatarProfile}
           />
-          <span>{session?.user.name}</span>
+          <span>{user.name}</span>
 
           <div className={styles.taskInfo}>
             <span>
@@ -83,6 +89,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   }
 
   return {
-    props: {}
+    props: {
+      user: {
+        name: session.user.name,
+        image: session.user.image
+      }
+    }
   }
 }

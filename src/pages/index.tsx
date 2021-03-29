@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { getSession } from 'next-auth/client'
+import { getSession, useSession } from 'next-auth/client'
 import { GetServerSideProps } from 'next'
 import { useEffect, useState } from 'react'
 
@@ -10,9 +10,16 @@ import { Footer } from '../components/Footer'
 
 import styles from './home.module.scss'
 
+interface HomeProps {
+  user: {
+    name: string
+    image: string
+  }
+}
+
 let countdownTimeout: NodeJS.Timeout
 
-export default function Home() {
+export default function Home({ user }: HomeProps) {
   const [time, setTime] = useState(0.1 * 60)
   const [active, setActive] = useState(false)
 
@@ -40,7 +47,7 @@ export default function Home() {
         <title>App</title>
       </Head>
 
-      <Header />
+      <Header user={user} />
       <main className={styles.homeContent}>
         <div className={styles.countdown}>
           <div className={styles.countdownContent}>
@@ -82,6 +89,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   }
 
   return {
-    props: {}
+    props: {
+      user: {
+        name: session.user.name,
+        image: session.user.image
+      }
+    }
   }
 }

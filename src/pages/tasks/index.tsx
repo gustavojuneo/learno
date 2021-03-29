@@ -1,22 +1,29 @@
 import Head from 'next/head'
-import { GetServerSideProps } from 'next'
-import { useEffect, useState } from 'react'
-
 import { getSession } from 'next-auth/client'
+import { GetServerSideProps } from 'next'
 
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 
 import styles from './styles.module.scss'
 
-export default function Tasks() {
+interface TasksProps {
+  user: {
+    name: string
+    image: string
+  }
+}
+
+let countdownTimeout: NodeJS.Timeout
+
+export default function Tasks({ user }: TasksProps) {
   return (
     <div className={styles.container}>
       <Head>
         <title>App</title>
       </Head>
 
-      <Header />
+      <Header user={user} />
       <main>
         <h1>Tasks</h1>
       </main>
@@ -39,6 +46,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   }
 
   return {
-    props: {}
+    props: {
+      user: {
+        name: session.user.name,
+        image: session.user.image
+      }
+    }
   }
 }
