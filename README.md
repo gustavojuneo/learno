@@ -75,6 +75,6 @@ $ yarn dev
 The application will run by default on the route:
 https://localhost:3000
 
-## LICENSE
+## License
 
 This project is under [LICENSE](../LICENSE) from MIT.
