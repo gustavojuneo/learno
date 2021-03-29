@@ -1,34 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <img src="./.github/logo.png">
+</div>
 
-## Getting Started
+<br />
+<p align="center">
+  <a href="#the-solution">Solution</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="how-to-use">How to use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#license">License</a>
+</p>
 
-First, run the development server:
+## The Solution
+
+<div align="center">
+  <img src="./.github/screenshot.png">
+</div>
+
+An open source application, using the concepts of the pomodoro method with task registration and user profile to save your progress.
+
+## Technologies
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [ReactJS](http://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [NextAuth](https://next-auth.js.org/)
+- [FaunaDB](https://fauna.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [js-cookie](https://github.com/js-cookie/js-cookie)
+- [Yarn](https://yarnpkg.com/)
+
+## How to use
+
+### Required Environment Variables
+
+- NEXTAUTH_URL
+- GITHUB_CLIENT_ID
+- GITHUB_CLIENT_SECRET
+- GOOGLE_CLIENT_ID
+- GOOGLE_CLIENT_SECRET
+- FAUNADB_KEY
+
+### Repository clone
+
+To download the project on your machine, run the command below in the terminal or [download](https://github.com/gustavojuneo/learno/archive/main.zip).
 
 ```bash
-npm run dev
-# or
-yarn dev
+$ git clone https://github.com/gustavojuneo/learno/.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installing the Dependencies
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+To be able to start the application it will be necessary to install the project dependencies, run the command below in the directory to install all the necessary dependencies.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```bash
+$ yarn install
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+ou
 
-## Learn More
+if you don't use Yarn you can use npm, just remove the yarn.lock file from inside the folder and run the following command:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+$ npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Starting the Application
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To start the application use the command:
 
-## Deploy on Vercel
+```bash
+$ yarn dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application will run by default on the route:
+https://localhost:3000
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## LICENSE
+
+This project is under [LICENSE](../LICENSE) from MIT.
