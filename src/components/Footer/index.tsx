@@ -8,7 +8,7 @@ import common from '../../styles/common.module.scss'
 export function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={common.container}>
+      <div className={`${common.container} ${styles.footerContent}`}>
         <nav>
           <ul>
             <li>

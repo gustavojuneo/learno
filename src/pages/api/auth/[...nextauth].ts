@@ -20,6 +20,31 @@ export default NextAuth({
     })
   ],
   callbacks: {
+    async session(session) {
+      try {
+        const userAvatar = await fauna.query(
+          q.Select(
+            ['data', 'image'],
+            q.Get(
+              q.Match(q.Index('user_by_email'), q.Casefold(session.user.email))
+            )
+          )
+        )
+
+        return {
+          ...session,
+          user: {
+            ...session.user,
+            image: userAvatar
+          }
+        }
+      } catch {
+        return {
+          ...session
+        }
+      }
+    },
+
     async signIn(user, account, profile) {
       const { email, name, image } = user
 
