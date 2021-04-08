@@ -23,7 +23,7 @@ export default function Profile({ user }: ProfileProps) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>App</title>
+        <title>{user.name} || Learno</title>
       </Head>
 
       <button

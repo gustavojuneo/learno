@@ -44,7 +44,7 @@ export default function Home({ user }: HomeProps) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>App</title>
+        <title>Home | Learno</title>
       </Head>
 
       <Header user={user} />

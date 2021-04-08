@@ -20,7 +20,7 @@ export default function Tasks({ user }: TasksProps) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>App</title>
+        <title>Atividades | Learno</title>
       </Head>
 
       <Header user={user} />
