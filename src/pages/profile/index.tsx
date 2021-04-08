@@ -37,7 +37,11 @@ export default function Profile({ user }: ProfileProps) {
       <main className={styles.profileContent}>
         <div className={styles.userInfo}>
           <img
-            src={user.image}
+            src={
+              user.image
+                ? user.image
+                : 'https://lh3.googleusercontent.com/proxy/FSUKzzbJDIT12up8j5OBCJwt9l4XM-tFmMxxh90c5GlLpVWBvDibQOMI13qgD6Qtl-ICNr0oGFeOfHh9BXPzwvqT'
+            }
             alt={user.name}
             className={styles.avatarProfile}
           />
@@ -57,9 +61,11 @@ export default function Profile({ user }: ProfileProps) {
         </div>
 
         <nav className={styles.profileOptions}>
-          <Link href="/profile">
-            <a>Editar perfil</a>
-          </Link>
+          {user.name !== 'guest' && (
+            <Link href="/profile">
+              <a>Editar perfil</a>
+            </Link>
+          )}
 
           <Link href="/profile">
             <a>Notificações</a>
@@ -91,8 +97,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       user: {
-        name: session.user.name,
-        image: session.user.image
+        name: session?.user.name || 'guest',
+        image: session?.user.image || ''
       }
     }
   }

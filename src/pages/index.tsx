@@ -91,8 +91,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       user: {
-        name: session.user.name,
-        image: session.user.image
+        name: session?.user.name || 'guest',
+        image: session?.user.image || ''
       }
     }
   }

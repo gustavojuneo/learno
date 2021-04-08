@@ -20,7 +20,14 @@ export function Header({ user }: HeaderProps) {
 
       <Link href="/profile">
         <a className={styles.profileAvatar}>
-          <img src={user.image} alt={user.name} />
+          <img
+            src={
+              user.image
+                ? user.image
+                : 'https://lh3.googleusercontent.com/proxy/FSUKzzbJDIT12up8j5OBCJwt9l4XM-tFmMxxh90c5GlLpVWBvDibQOMI13qgD6Qtl-ICNr0oGFeOfHh9BXPzwvqT'
+            }
+            alt={user.name}
+          />
         </a>
       </Link>
     </header>
