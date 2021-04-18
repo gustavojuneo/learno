@@ -7,8 +7,6 @@ import { signOut } from 'next-auth/client'
 import common from '../../styles/common.module.scss'
 
 export function GuestButton() {
-  const router = useRouter()
-
   async function handleGuestSignIn() {
     signOut()
     Cookies.set('guest', 'guest_user')
