@@ -1,7 +1,7 @@
 import { useContext } from 'react'
-import { MdPlayArrow } from 'react-icons/md'
 
 import { CountdownContext } from '../../contexts/CountdownContext'
+import { Button } from './Button'
 import styles from './styles.module.scss'
 
 export function Countdown() {
@@ -28,12 +28,7 @@ export function Countdown() {
         </div>
       </div>
 
-      <div className={styles.countdownButton}>
-        <button type="button" onClick={startCountDown}>
-          <MdPlayArrow />
-          Iniciar um ciclo
-        </button>
-      </div>
+      <Button />
     </>
   )
 }

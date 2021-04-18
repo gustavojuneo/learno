@@ -21,10 +21,14 @@ export const CountdownContext = createContext({} as CountdownContextData)
 export function CountdownProvider({ children }: CountdownProviderProps) {
   const [time, setTime] = useState(initialTime)
   const [isActive, setIsActive] = useState(false)
-  const [hasFinished, setHasFinished] = useState(true)
+  const [hasFinished, setHasFinished] = useState(false)
 
   const minutes = Math.floor(time / 60)
   const seconds = time % 60
+
+  useEffect(() => {
+    Notification.requestPermission()
+  }, [])
 
   useEffect(() => {
     if (isActive && time > 0) {
@@ -34,6 +38,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     } else if (isActive && time === 0) {
       setHasFinished(true)
       setIsActive(false)
+      FinishedCountdown()
     }
   }, [isActive, time])
 
@@ -46,6 +51,16 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     setIsActive(false)
     setHasFinished(false)
     setTime(initialTime)
+  }
+
+  function FinishedCountdown() {
+    new Audio('./notification.mp3').play()
+
+    if (Notification.permission === 'granted') {
+      new Notification('Ciclo encerrado 🎉', {
+        body: 'Hora de dar uma pausa!'
+      })
+    }
   }
 
   return (
