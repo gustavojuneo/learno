@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 
 interface CountdownContextData {
+  initialTime: number
+  time: number
   minutes: number
   seconds: number
   isActive: boolean
@@ -14,11 +16,11 @@ interface CountdownProviderProps {
 }
 
 let countdownTimeout: NodeJS.Timeout
-const initialTime = 0.1 * 60
 
 export const CountdownContext = createContext({} as CountdownContextData)
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
+  const initialTime = 1 * 60
   const [time, setTime] = useState(initialTime)
   const [isActive, setIsActive] = useState(false)
   const [hasFinished, setHasFinished] = useState(false)
@@ -68,6 +70,8 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
       value={{
         isActive,
         hasFinished,
+        initialTime,
+        time,
         minutes,
         seconds,
         startCountDown,

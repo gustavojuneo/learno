@@ -9,23 +9,23 @@ export function Button() {
   )
 
   return (
-    <div className={styles.countdownButton}>
+    <div className={styles.timerButton}>
       {hasFinished ? (
         <button type="button" onClick={resetCountDown}>
           <MdPlayArrow />
-          Iniciar novo ciclo
+          Iniciar
         </button>
       ) : (
         <>
           {isActive ? (
             <button type="button" onClick={resetCountDown}>
               <MdClose />
-              Abandonar ciclo
+              Parar
             </button>
           ) : (
             <button type="button" onClick={startCountDown}>
               <MdPlayArrow />
-              Iniciar um ciclo
+              Iniciar
             </button>
           )}
         </>

@@ -1,19 +1,22 @@
-.countdown {
+.timer {
   flex: 1;
   display: flex;  
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  width: 100%;
+
 }
 
-.countdownContent {
+.timerContent {
   color: var(--red-500);
   font-size: 10rem;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
 }
 
-.countdownButton {
+.timerButton {
   width: 100%;
   display: flex;
   align-items: center;
@@ -45,5 +48,25 @@
       height: 32px;
       margin-right: 1rem;
     }
+  }
+}
+
+.progressBar {
+  width: 80%;
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  position: relative;
+
+  > span {
+    position: absolute;
+
+    height: 100%;
+    background-color: var(--red-500);
+    z-index: 1;
+
+    transition: width .4s ease-in;
   }
 }
